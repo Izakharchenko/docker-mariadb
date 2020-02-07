@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    container_name: mariadb
+    volumes:
+           - ./datadir:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    container_name: mariadb_adminer
+    ports:
+      - 8080:8080
